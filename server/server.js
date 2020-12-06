@@ -7,5 +7,5 @@ const port = process.env.PORT || 5000;
 
 //initialize all of our middleware, routers, etc.
 const app = express.init()
-
+console.log("Attempting to run");
 app.listen(port, () => console.log(`Server now running on port ${port}!`));

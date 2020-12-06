@@ -25,7 +25,7 @@ export default function App() {
     user: undefined,
     currVessel: undefined,
   });
-
+  const url = window.location.origin;
 
   useEffect(() => {
     const checkLoggedIn = async () => {
@@ -35,12 +35,12 @@ export default function App() {
         token = "";
       }
       const tokenRes = await Axios.post(
-        "http://localhost:5000/users/tokenIsValid",
+        url + "/users/tokenIsValid",
         null,
         { headers: { "x-auth-token": token } }
       );
       if (tokenRes.data) {
-        const userRes = await Axios.get("http://localhost:5000/users/", {
+        const userRes = await Axios.get(url + "/users/", {
           headers: { "x-auth-token": token },
         });
         setUserData({
